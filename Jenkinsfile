@@ -3,7 +3,7 @@ pipeline {
     environment {
         IMAGE_REPO_NAME="log4shellpub"
         //REPLACE XXX WITH YOUR STUDENT NUMBER
-        IMAGE_TAG= "stdXXX"        
+        IMAGE_TAG= "ebcdemo"        
         REPOSITORY_URI = "public.ecr.aws/f9n2h3p5/log4shellpub"
         AWS_DEFAULT_REGION = "us-east-1"
     }
