@@ -6,7 +6,7 @@ pipeline {
         IMAGE_TAG= "ebcdemo"        
         REPOSITORY_URI = "public.ecr.aws/f9n2h3p5/log4shellpub"
         AWS_DEFAULT_REGION = "us-east-1"
-        def scannerHome = tool 'SonarScanner 4.0'
+        scannerHome = tool 'SonarScanner'
     }
    
     stages {
@@ -59,9 +59,8 @@ pipeline {
 
       stage('SonarQube analysis') {
             steps {
-                 def scannerHome = tool 'SonarScanner'
                 withSonarQubeEnv('AWSSonar') { // If you have configured more than one global server connection, you can specify its name
-                sh "${scannerHome}/bin/sonar-scanner"
+                sh '''${scannerHome}/bin/sonar-scanner'''
                 }
             }
       }
