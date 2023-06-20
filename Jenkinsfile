@@ -57,24 +57,24 @@ pipeline {
         } 
 
 
-      stage('SonarQube analysis') {
+      /*stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('AWSSonar') { // If you have configured more than one global server connection, you can specify its name
                 sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
-      }
+      }*/
 
 
 
 
         
-       /*stage('FortiDevSec DAST'){
+       stage('FortiDevSec DAST'){
             steps {
                  sh 'env | grep -E "JENKINS_HOME|BUILD_ID|GIT_BRANCH|GIT_COMMIT" > /tmp/env'
                  sh 'docker pull registry.fortidevsec.forticloud.com/fdevsec_dast:latest'
                  sh 'docker run --rm --env-file /tmp/env --mount type=bind,source=$PWD,target=/scan registry.fortidevsec.forticloud.com/fdevsec_dast:latest'
             }
-        }*/
+        }
     }
 }
